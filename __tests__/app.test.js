@@ -12,22 +12,22 @@ describe('zodiac routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  // it('/zodiac/:id should return zodiac detail', async () => {
-  //   const res = await request(app).get('/zodiac/1');
-  //   const aquarius = {
-  //     id: '1',
-  //     name: 'aquarius',
-  //     dates: 'Jan 21 - Feb 19',
-  //     symbol: 'Water Bearer',
-  //   };
-  //   expect(res.body).toEqual(aquarius);
-  // });
-
-  it('/horoscope/:name should return horoscope url', async () => {
-    const res = await request(app).get('/horoscope/aquarius');
+  it('/zodiac/:id should return zodiac detail', async () => {
+    const res = await request(app).get('/zodiac/1');
     const aquarius = {
+      id: '1',
       name: 'aquarius',
-      horoscope: 'url',
+      dates: 'Jan 21 - Feb 19',
+      symbol: 'Water Bearer',
+    };
+    expect(res.body).toEqual(aquarius);
+  });
+
+  it('/horoscope/:sign should return horoscope url', async () => {
+    const res = await request(app).get('/horoscopes/aquarius');
+    const aquarius = {
+      sign: 'aquarius',
+      horoscope: 'https://www.laughsend.com/horoscopes/aquarius.php',
     };
     expect(res.body).toEqual(aquarius);
   });
