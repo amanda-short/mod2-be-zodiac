@@ -12,14 +12,22 @@ describe('zodiac routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it('/zodiac/:id should return zodiac detail', async () => {
-    const res = await request(app).get('/zodiac/1');
+  // it('/zodiac/:id should return zodiac detail', async () => {
+  //   const res = await request(app).get('/zodiac/1');
+  //   const aquarius = {
+  //     id: '1',
+  //     name: 'aquarius',
+  //     dates: 'Jan 21 - Feb 19',
+  //     symbol: 'Water Bearer',
+  //   };
+  //   expect(res.body).toEqual(aquarius);
+  // });
+
+  it('/horoscope/:name should return horoscope url', async () => {
+    const res = await request(app).get('/horoscope/aquarius');
     const aquarius = {
-      id: '1',
       name: 'aquarius',
-      dates: 'Jan 21 - Feb 19',
-      symbol: 'Water Bearer',
-      // horoscope: 'coming soon...',
+      horoscope: 'url',
     };
     expect(res.body).toEqual(aquarius);
   });
